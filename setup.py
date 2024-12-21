@@ -17,7 +17,7 @@ def get_requirements(file_path:str)->List[str]:
     return requirements
 
 setup(
-    name="Advertising_Sales_MLOPS",
+    name="potato disease",
     version="0.0.1",
     author="Gomes Singh Adhikari",
     author_email="gomesadhikari@gmail.com",

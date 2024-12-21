@@ -1,17 +1,17 @@
 artifacts_root: artifacts
 
-data ingestion:
+DataIngestion:
   root_dir: artifacts/data_ingestion
-  source: data
+  data_source: data/disease_data.zip
   data_dir: artifacts/data_ingestion
   STATUS_FILE: artifacts/data_ingestion/status.txt
 
-data validation:
+DataValidation:
   root_dir: artifacts/data_validation
   data_dir: artifacts/data_ingestion
   STATUS_FILE: artifacts/data_validation/status.txt  # status of data validation 
 
-preprocessing:
+Preprocessing: 
   root_dir: artifacts/preprocessing
   data_path: artifacts/data_ingestion
   train_data_dir: artifacts/preprocesssing/data/train
