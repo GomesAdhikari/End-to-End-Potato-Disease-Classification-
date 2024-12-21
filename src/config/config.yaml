@@ -8,7 +8,7 @@ DataIngestion:
 
 DataValidation:
   root_dir: artifacts/data_validation
-  data_dir: artifacts/data_ingestion
+  data_dir: artifacts/data_ingestion/data
   STATUS_FILE: artifacts/data_validation/status.txt  # status of data validation 
 
 Preprocessing: 

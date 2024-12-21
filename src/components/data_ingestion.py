@@ -35,6 +35,12 @@ class DataIngestion:
             error_logger.error(e,DataIngestionError)
 
 
+if __name__=='__main__':
+
+    obj = DataIngestion()
+    obj.Start()
+
+
 
 
 
