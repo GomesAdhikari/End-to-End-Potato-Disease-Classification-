@@ -15,9 +15,7 @@ def handle_exception(error, error_type):
     error_logger.error("\n\n")  # To leave a few blank lines
 
     # Print only the formatted message to the console
-    print(f"{error_type.__name__}: {error.__class__.__name__}: {error}")
-
-
+    print(f"{error_type.__class__.__name__}: {error.__class__.__name__}: {error}")
 
 # Base custom exception
 class PipelineError(Exception):
@@ -33,7 +31,7 @@ class DataIngestionError(PipelineError):
 class DataValidationError(PipelineError):
     pass
 
-class Preprocessing(PipelineError):
+class PreprocessingError(PipelineError):
     pass
 
 class ModelTrainingError(PipelineError):
@@ -45,6 +43,13 @@ class ModelEvaluationError(PipelineError):
 
 if __name__ == "__main__":
     try:
-        my_func(23)
+        # Define or import the function
+        def my_func(x):
+            if x < 0:
+                raise ValueError("Input must be non-negative")
+            return x * 2
+
+        # Call the function with incorrect input
+        my_func(-5)
     except Exception as e:
-        handle_exception(e, DataIngestionError)
+        handle_exception(e, DataIngestionError(e))
