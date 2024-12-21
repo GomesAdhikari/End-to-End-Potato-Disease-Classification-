@@ -32,10 +32,8 @@ class DataIngestionError(PipelineError):
 
 class DataValidationError(PipelineError):
     pass
-class CrossValError(PipelineError):
-    pass
 
-class FeatureEngineeringError(PipelineError):
+class Preprocessing(PipelineError):
     pass
 
 class ModelTrainingError(PipelineError):
