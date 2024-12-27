@@ -15,37 +15,13 @@ A web-based application that uses deep learning to classify diseases in potato p
 - 💻 User-friendly web interface
 - 🔄 Automatic image format conversion
 - 🛡️ Secure file handling
-
-## Project Structure
-
-```
-potato-disease-classification/
-│
-├── artifacts/
-│   ├── models/
-│   │   └── final_model.keras
-│   └── preprocessing/
-│       └── class_mapping.pkl
-│
-├── static/
-│   └── css/
-│       └── style.css
-│
-├── templates/
-│   └── index.html
-│
-├── uploads/
-│
-├── app.py
-├── requirements.txt
-└── README.md
-```
+- 
 
 ## Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/potato-disease-classification.git
+git clone https://github.com/GomesAdhikari/End-to-End-Potato-Disease-Classification-
 cd potato-disease-classification
 ```
 
@@ -68,6 +44,7 @@ tensorflow==2.x
 Pillow==8.3.1
 Werkzeug==2.0.1
 numpy==1.19.5
+etc.
 ```
 
 ## Usage
@@ -135,13 +112,13 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-Created by [@yourusername](https://github.com/yourusername) - feel free to contact me!
+Created by [@GomesAdhikari](https://github.com/yourusername) - feel free to contact me!
 
 ## Acknowledgments
 
-- Dataset source: [Add source here]
+- Dataset source: [https://www.kaggle.com/datasets/hafiznouman786/potato-plant-diseases-data]
 - Thanks to contributors and maintainers
 - Special thanks to the agricultural experts who helped in validation
 
 ---
-**Note**: Make sure to replace placeholder values (like [@yourusername]) with your actual information before publishing.
+**Note**: Make sure to replace placeholder values (like [GomesAdhikari]) with your actual information before publishing.
