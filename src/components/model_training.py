@@ -179,6 +179,3 @@ class ModelTraining:
         except Exception as e:
             error_logger.error(f"Error in model training: {str(e)}")
             raise ModelTrainingError(f"Model training failed: {str(e)}")
-if __name__ == '__main__':
-    obj = ModelTraining()
-    obj.Start()

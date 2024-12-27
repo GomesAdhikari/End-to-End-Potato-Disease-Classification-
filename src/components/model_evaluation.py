@@ -147,6 +147,4 @@ class ModelEvaluation:
             error_logger.error(f"Model evaluation failed: {str(e)}")
             raise e
 
-if __name__ == "__main__":
-    evaluation = ModelEvaluation()
-    evaluation.Start()
+
