@@ -6,4 +6,6 @@ matplotlib
 Flask
 pyYAML
 omegaconf
--e .
+flask
+werkzeug
+#-e .

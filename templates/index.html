@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potato Disease Classification</title>
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #45a049;
+            --background-color: #f0f7f0;
+            --card-background: #ffffff;
+            --text-color: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .card {
+            background: var(--card-background);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 30px;
+        }
+
+        .description {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--primary-color);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+            background-color: rgba(76, 175, 80, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .upload-area:hover {
+            background-color: rgba(76, 175, 80, 0.1);
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .file-label {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .file-label:hover {
+            background-color: var(--secondary-color);
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #e8f5e9;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .selected-file-name {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* Loading animation */
+        .loading {
+            display: none;
+            margin: 20px auto;
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Potato Disease Classification</h1>
+        
+        <div class="card">
+            <p class="description">Upload a clear image of a potato leaf to identify potential diseases. Our AI-powered system will analyze the image and provide you with instant results.</p>
+
+            <form action="/predict" method="POST" enctype="multipart/form-data" id="upload-form">
+                <div class="upload-area">
+                    <label for="file-upload" class="file-label">
+                        Choose Image
+                    </label>
+                    <input id="file-upload" type="file" name="file" accept="image/*" required>
+                    <div class="selected-file-name" id="file-name"></div>
+                </div>
+                
+                <button type="submit">Analyze Image</button>
+            </form>
+
+            <div class="loading" id="loading-spinner"></div>
+
+            {% if predicted_class %}
+            <div class="result">
+                <p>Predicted Disease: {{ predicted_class }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        // Display selected filename
+        document.getElementById('file-upload').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name || 'No file selected';
+            document.getElementById('file-name').textContent = fileName;
+        });
+
+        // Show loading spinner on form submit
+        document.getElementById('upload-form').addEventListener('submit', function() {
+            document.getElementById('loading-spinner').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
